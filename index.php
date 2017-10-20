@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Portal de Transparecia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Skokov Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<!---- start-smoth-scrolling---->
+<!-- webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
+<!-- Favicons
+	=================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+	<style>
+		  #map {
+			height: 400px;
+			width: 100%;
+		   }
+    </style>
+</head>
+<body>
+		<!-- container -->
+		<div id="home" class="header-bg">
+			<div class="container">
+				<!-- header -->
+				<div class="header">
+					<!-- logo -->
+					<div class="logo">
+						<a href="index.html"><img src="images/logo1.png" title="Transparecia" /></a>
+					</div>
+					<!-- /logo -->
+					<!-- top-nav -->
+					
+					<div class="menu">
+						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
+						    <ul class="nav" id="nav">
+						    	<li class="active"><a class="scroll" href="#home">Inicio<span> </span></a></li>
+								<li><a  href="documento.html">Documentación<span> </span></a></li>
+								<li><a class="scroll" href="#about">Nosotros<span> </span></a></li>
+								<li><a href="solicita.php">Solicita<span> </span></a></li>
+								<div class="clearfix"></div>
+							</ul>
+							<script type="text/javascript" src="js/responsive-nav.js"></script>
+							<script type="text/javascript">
+							jQuery(document).ready(function($) {
+								$(".scroll").click(function(event){		
+									event.preventDefault();
+									$('html,body').animate({scrollTop:$(this.hash).offset().top},1500);
+								});
+							});
+						</script>
+				    </div>		
+					<div class="clearfix"> </div>
+					<!-- /top-nav -->
+				</div>
+				<!-- /header -->
+				<!-- header-info -->
+				<div class="header-info">
+					<h1>Transparencia y Acceso a la Información Pública</h1>
+					<p>Conoce todo sobre tu localidad</p>
+					<ul>
+						<li><a class="r-btn" href="#solicita">Empezar</a></li>
+						<li><a class="d-btn" href="http://www.ocpla.uni.edu.pe/oym/file/Ley_Transparencia.pdf" target="_blank">Conoce más</a></li>
+						<div class="clearfix"> </div>
+					</ul>
+				</div>
+				<!-- header-info -->
+				<!-- chart -->
+				<div class="chart">
+					<span> </span>
+				</div>
+				<!-- chart -->
+			</div>
+			<!-- /header-bg -->
+		</div>
+		<!-- documentos -->
+		
+		<div id="documentos" class="documentos">
+			<?php 
+			include("conexion.php");
+				$con = conectar();
+
+			$rsdocumento = "select * from documento where id_doc order by id_doc ASC";
+			$documento = mysql_query($rsdocumento);
+
+			?>
+			<div class="container">
+						
+				<div class="header-section text-center">
+					<h3>Documentación</h3>
+					<p>Se presenta información referencial de los documentos legales de la Municipalidad.</p>
+				</div>
+				<?php
+				$i=0;
+				while ($rsdocumento = mysql_fetch_array($documento)) {
+				?>
+		
+				<?php if($i%4==0) { $i=$i+1; ?>
+				<!-- documentos -->
+				<div class="service-grids">
+					<?php } ?>
+					<div class="col-md-3 service-grid text-center">
+						<a href="#"><span class="<?php echo $rsdocumento['nom_ing']?>"> </span></a>
+						<h4><?php echo $rsdocumento['titulo'] ?></h4>
+						<label> </label>
+						<p><?php echo $rsdocumento['descripcion'] ?></p>
+					</div>
+					<?php if($i%4==0) { ?>
+					<div class="clearfix"> </div> 
+				</div>
+				<?php }?>
+				<?php }?>
+			</div>
+		</div>
+		<!-- documentos -->
+		<!-- solicita documentos -->
+		<div id="solicita" class="solicitud-section text-center">
+			<div class="container">
+				<div class="solicitud-section-info">
+					<h2>Acceso a la Información Pública Local</h2>
+					<a class="c-btn" href="solicita.html">Solicita!</a>
+				</div>
+			</div>
+			<div class="contact-section-mask">
+				<span> </span>
+			</div>
+		</div>
+		<!-- contact-section -->
+		<!-- about-section -->
+		<div id="about" class="about-section">
+			<div class="container">
+				<div class="header-section text-center">
+					<h3>Nosotros</h3>
+					<p>Conoce más sobre la municipalidad y su distrito.</p>
+				</div>
+				<!-- about-section-grids -->
+				<div class="about-section-grids">
+					<div class="col-md-6 about-section-left">
+						<h4>Como Municipalidad<span> </span></h4>
+							<p class="m_5"><b>HISTORIA</b></p>
+							<p align="justify">En 1825 por Decreto Supremo, Pacasmayo asume la categoría de 
+								Distrito y el 23 de noviembre de 1864 se integra a la Provincia de Pacasmayo. 
+								La Municipalidad Distrital de Pacasmayo inicia sus actividades el 09 febrero 1975, 
+								con función en las actividades administrativas públicas en general.</p>
+							<p class="m_5"><b>CONCEJO MUNICIPAL</b></p>
+								<ul>
+									<p>Aldo Navarro Sarmiento (Alcalde)
+									Javier Poémape Rivera (Regidor)
+									Luciano Jave Alvites (Regidor)
+									Rosario Castillo Limo (Regidora)
+									Grecia Urcia Díaz (Regidora)
+									Robert Amaya Carrera (Regidor)
+									Luis Magno Angulo (Regidor)
+									Juan Carlos Toledo (Regidor)
+									</p>
+								</ul>
+					</div>
+					<div class="col-md-6 about-section-rigth">
+						<br>
+						<p class="m_5"><b>VISITAMOS</b></p>
+						<ul>
+							<li>
+								<P>Atención de Lunes a Viernes (08:00AM - 01:00PM, 02:30PM - 05:30PM).</P>
+							</li>
+						</ul>
+						<div align="center">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.5779015471808!2d-79.57418788567891!3d-7.4011003946599505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904d46080f02498f%3A0x51565fc9624d52d9!2sMunicipalidad+Distrital+de+Pacasmayo!5e0!3m2!1ses!2spe!4v1508176164672" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+						</div>
+						<hr>
+						<ul>
+						<p><b>Telf.:</b> (044)528338</p>
+						<p><b>Email:</b> munipacasmayo@hotmail.com</p>
+						<a href="http://www.munipacasmayo.gob.pe/"><b>munipacasmayo.gob</b></a>
+						</ul>
+					</div>	
+				<!-- about-section-grids -->
+			</div>
+		</div>
+		</div>
+		<!-- team-section -->
+		<!-- what-we-do-section -->
+		<div class="what-we-do-section">
+			<div class="container">
+				<div class="what-we-do-section-info text-center">
+					<a class="play" href="#"><span> </span></a>
+					<h3>Actividades Oficiales</h3>
+					<p>Hallará información de la Agenda Institucional.</p>
+				</div>
+			</div>
+			<div class="what-we-do-mask">
+				<span> </span>
+			</div>
+		</div>
+		<!-- pie de pagina -->
+		<div class="footer">
+			<div class="container">
+				<div class="footer-left">
+					<p>Derechos::<a href="http://www.munipacasmayo.gob.pe/">Municipalidad Distrital de Pacasmayo</a></p>
+				</div>
+				<div class="footer-right">
+					<ul>
+						<li><a href="#"></a></li>
+						<li><a href="https://www.facebook.com/municipalidadpacasmayo/" target="_blank"><span class="face"> </span></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<div class="clearfix"> </div>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		<!-- footer -->
+		<!-- /container -->
+</body>
+</html>
